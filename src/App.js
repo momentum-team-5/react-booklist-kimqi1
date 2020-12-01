@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom'
 import AllBooks from './components/AllBooks'
 import { useLocalStorage } from './hooks'
+import Note from './components/Note'
 
 function App () {
   const [auth, setAuth] = useLocalStorage('book_auth', null)
@@ -26,6 +27,9 @@ function App () {
         )}
 
         <Switch>
+          <Route path='/note/:id'>
+            <Note auth={auth} />
+          </Route>
           <Route path='/signup'>
             <Register
               auth={auth}
