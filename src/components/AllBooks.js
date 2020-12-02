@@ -38,38 +38,39 @@ const AllBooks = ({ auth }) => {
 
   return (
     <div className='BookList'>
-      <h1 className='mh2 mv3'>Book List</h1>
+      <h1 className='mh2 mv3'>My Book List</h1>
       <div className='key flex'>
 
-        <div> <h3 className='reading ma3 pv4 pa3 ph6'>Reading</h3> 
-        { readingBooks.map(book => (
-         <div 
-          key={book._id} className={clsx('ma2 book', {
-            reading: book.status === 'reading',
-            toread: book.status === 'toread',
-            read: book.status === 'read'
-          })}
-          >
-            <h2 className='ma2 underline'>{book.title || 'No Title'}</h2>
-            <p className='ma3 i'>Written by {book.authors}</p>
-            <p><button onClick={() => deleteBook(book)}>Delete book</button></p>
-            </div>
-        ))}
-       
-
-        <div> <h3 className='toread ma3 pv4 pa3 ph6'>To Read</h3> 
-          { toReadBooks.map(book => (
-            <div 
-            key={book._id} className={clsx('ma2 book', {
-              reading: book.status === 'reading',
-              toread: book.status === 'toread',
-              read: book.status === 'read'
-            })}
+        <div>
+          <h3 className='reading ma3 pv4 pa3 ph6'>Reading</h3>
+          {readingBooks.map(book => (
+            <div
+              key={book._id} className={clsx('ma2 book', {
+                reading: book.status === 'reading',
+                toread: book.status === 'toread',
+                read: book.status === 'read'
+              })}
             >
-            <h2 className='ma2 underline'>{book.title || 'No Title'}</h2>
-            <p className='ma3 i'>Written by {book.authors}</p>
-            <p><button onClick={() => deleteBook(book)}>Delete book</button></p>
-          </div> 
+              <h2 className='ma2 underline'>{book.title || 'No Title'}</h2>
+              <p className='ma3 i'>Written by {book.authors}</p>
+              <p><button onClick={() => deleteBook(book)}>Delete book</button></p>
+            </div>
+          ))}
+        </div>
+        <div>
+          <h3 className='toread ma3 pv4 pa3 ph6'>To Read</h3>
+          {toReadBooks.map(book => (
+            <div
+              key={book._id} className={clsx('ma2 book', {
+                reading: book.status === 'reading',
+                toread: book.status === 'toread',
+                read: book.status === 'read'
+              })}
+            >
+              <h2 className='ma2 underline'>{book.title || 'No Title'}</h2>
+              <p className='ma3 i'>Written by {book.authors}</p>
+              <p><button onClick={() => deleteBook(book)}>Delete book</button></p>
+            </div>
           ))}
         </div>
 
@@ -85,12 +86,13 @@ const AllBooks = ({ auth }) => {
               <h2 className='ma2 underline'>{book.title || 'No Title'}</h2>
               <p className='ma3 i'>Written by {book.authors}</p>
               <p><button onClick={() => deleteBook(book)}>Delete book</button></p>
-         </div>
+            </div>
           ))}
         </div>
       </div>
-      
-    )
-} 
+
+    </div>
+  )
+}
 
 export default AllBooks
