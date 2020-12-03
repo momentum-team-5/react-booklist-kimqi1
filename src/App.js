@@ -31,6 +31,7 @@ function App () {
           <Route path='/addbook'>
             <AddBook auth={auth} />
           </Route>
+
           <Route path='/note/:id'>
             <Note auth={auth} />
 

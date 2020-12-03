@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import clsx from 'clsx'
 
@@ -56,6 +56,9 @@ export default function AddBook ({ auth }) {
           </div>
         )
       }
+      <div className='flex justify-center mv2'>
+        <button><Link to='/'>Return to My Book List</Link></button>
+      </div>
       <form onSubmit={handleSubmit}>
         <div>
           <div className='mh2 mv2'>
@@ -102,6 +105,7 @@ export default function AddBook ({ auth }) {
           </div>
           <button className='mh2 mv2' type='submit'>Submit</button>
         </div>
+
       </form>
     </div>
   )
