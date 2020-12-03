@@ -11,6 +11,7 @@ import {
 import AllBooks from './components/AllBooks'
 import { useLocalStorage } from './hooks'
 import Note from './components/Note'
+import AddBook from './components/AddBook'
 
 function App () {
   const [auth, setAuth] = useLocalStorage('book_auth', null)
@@ -27,20 +28,26 @@ function App () {
         )}
 
         <Switch>
+          <Route path='/addbook'>
+            <AddBook auth={auth} />
+          </Route>
           <Route path='/note/:id'>
             <Note auth={auth} />
+
           </Route>
           <Route path='/signup'>
             <Register
               auth={auth}
               onRegister={setAuth}
             />
+
           </Route>
           <Route path='/login'>
             <Login
               auth={auth}
               onLogin={setAuth}
             />
+
           </Route>
           <Route path='/'>
             <AllBooks auth={auth} />

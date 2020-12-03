@@ -13,29 +13,35 @@
   width: 600px;
   justify-content: flex-end;
 }
+
 .book {
   border: solid black 3px;
-  display: -ms-grid;
+  
 }
 
 .reading {
   background-color: rgb(13, 240, 164);
-  display:inline-block;
+  border: solid black 3px;
+  
   
 }
 
 .toread {
   background-color: gold;
-  display:inline-block;
+  border: solid black 3px;
+  
+  
   
 }
 
 .read {
   background-color: rgb(235, 90, 90);
-  display:inline-block;
+  border: solid black 3px;
+  
   
 }
 
 .key {
   width: 300px;
 }
+

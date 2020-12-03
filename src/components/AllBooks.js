@@ -1,7 +1,9 @@
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import clsx from 'clsx'
+import AddBook from './AddBook'
+import Note from './Note'
 
 const AllBooks = ({ auth }) => {
   const [books, setBooks] = useState([])
@@ -38,53 +40,60 @@ const AllBooks = ({ auth }) => {
 
   return (
     <div className='BookList'>
-      <h1 className='mh2 mv3'>My Book List</h1>
-      <div className='key flex'>
+      <h1 className='underline flex justify-center mh2 mv3'>My Book List</h1>
+      <div className='flex justify-center mv2'>
+        <button><Link to='/addbook'>Add A Book</Link></button>
+      </div>
+      <div className='dt dt--fixed w-100 flex justify-center'>
 
-        <div>
-          <h3 className='reading ma3 pv4 pa3 ph6'>Reading</h3>
+        <div className='h3 dt dt--fixed w-100'>
+          <h3 className='h3 reading flex justify-center ma3 pv4 pa3 ph6'>Reading</h3>
           {readingBooks.map(book => (
             <div
-              key={book._id} className={clsx('ma2 book', {
+              key={book._id} className={clsx('grow ma2 book', {
                 reading: book.status === 'reading',
                 toread: book.status === 'toread',
                 read: book.status === 'read'
               })}
             >
               <h2 className='ma2 underline'>{book.title || 'No Title'}</h2>
-              <p className='ma3 i'>Written by {book.authors}</p>
+              <p className='ma3 i'>Written by: {book.authors}</p>
               <p><button onClick={() => deleteBook(book)}>Delete book</button></p>
+              <div className='flex justify-center mv2'>
+                <button><Link to='/note'>Add A Note</Link></button>
+              </div>
             </div>
           ))}
         </div>
-        <div>
-          <h3 className='toread ma3 pv4 pa3 ph6'>To Read</h3>
+        <div className='h3 dt dt--fixed w-100'>
+          <h3 className='toread h3 ma3 pv4 pa3 ph6'>ToRead</h3>
           {toReadBooks.map(book => (
             <div
-              key={book._id} className={clsx('ma2 book', {
+              key={book._id} className={clsx('grow ma2 book', {
                 reading: book.status === 'reading',
                 toread: book.status === 'toread',
                 read: book.status === 'read'
               })}
             >
               <h2 className='ma2 underline'>{book.title || 'No Title'}</h2>
-              <p className='ma3 i'>Written by {book.authors}</p>
+              <p className='ma3 i'>Written by: {book.authors}</p>
               <p><button onClick={() => deleteBook(book)}>Delete book</button></p>
             </div>
           ))}
         </div>
 
-        <div> <h3 className='read ma3 pv4 pa3 ph6'>Read</h3>
+        <div className='h3 dt dt--fixed w-100'>
+          <h3 className='read h3 ma3 pv4 pa3 ph6'>Read</h3>
           {readBooks.map(book => (
             <div
-              key={book._id} className={clsx('ma2 book', {
+              key={book._id} className={clsx('grow ma2 book', {
                 reading: book.status === 'reading',
                 toread: book.status === 'toread',
                 read: book.status === 'read'
               })}
             >
               <h2 className='ma2 underline'>{book.title || 'No Title'}</h2>
-              <p className='ma3 i'>Written by {book.authors}</p>
+              <p className='ma3 i'>Written by: {book.authors}</p>
               <p><button onClick={() => deleteBook(book)}>Delete book</button></p>
             </div>
           ))}
